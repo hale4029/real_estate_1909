@@ -1,13 +1,22 @@
 
 class House
-  attr_accessor :price, :address
+  attr_accessor :price, :address, :rooms
 
-  def initialize(house_info)
-    house_info = house_info.split(",")
-    @price = house_info.first
-    @address = house_info.last
+  def initialize(price, address)
+    @price = price
+    @address = address
     @rooms = []
   end
 
+  def add_room(room)
+    @rooms << room
+  end
+
+  def area
+  end
+
+  def rooms_from_category(category)
+    @rooms.find_all { |room| room.category == category }
+  end
 
 end
