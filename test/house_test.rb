@@ -39,9 +39,17 @@ class HouseTest < Minitest::Test
 
     @house.add_room(@room_2)
     assert_equal [@room, @room_2], @house.rooms_from_category(:bedroom)
-    
+
     @house.add_room(@room_3)
     assert_equal [@room_3], @house.rooms_from_category(:living_room)
+  end
+
+  def test_sum_of_house_area
+    @house.add_room(@room)
+    @house.add_room(@room_2)
+    @house.add_room(@room_3)
+
+    assert_equal 442, @house.area
   end
 
 end

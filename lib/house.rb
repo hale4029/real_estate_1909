@@ -13,6 +13,9 @@ class House
   end
 
   def area
+    sum = 0
+    @rooms.each { |room| sum += room.area }
+    sum
   end
 
   def rooms_from_category(category)
