@@ -22,4 +22,18 @@ class House
     @rooms.find_all { |room| room.category == category }
   end
 
+  def price_per_square_foot
+    (@price.delete("$").to_f / area).round(2)
+  end
+
+  def rooms_sorted_by_area
+    @rooms.sort_by { |room| room.area }
+  end
+
+  def rooms_by_category
+    hash = {}
+    hash = Hash[@rooms.map { |room| [room.category, [room]] }]
+  end
+
+
 end
